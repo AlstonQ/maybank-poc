@@ -46,7 +46,7 @@ export default function CaseHomepage() {
               onClick={() => setActiveFilter(st)}
               className={`h-7 px-3.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-colors ${
                 activeFilter === st 
-                  ? 'bg-[#E6308A] text-white' 
+                  ? 'bg-brand text-white' 
                   : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-600'
               }`}
             >
@@ -93,7 +93,7 @@ export default function CaseHomepage() {
                     className="hover:bg-zinc-50/80 cursor-pointer transition-all"
                   >
                     <td className="py-4 px-6 text-zinc-500 font-bold">{c.id}</td>
-                    <td className="py-4 px-6 font-extrabold text-zinc-800 hover:text-[#E6308A] transition-all">
+                    <td className="py-4 px-6 font-extrabold text-zinc-800 hover:text-brand transition-all">
                       {c.customerName}
                     </td>
                     <td className="py-4 px-6 text-zinc-600 max-w-[200px] truncate">{c.category}</td>
@@ -114,7 +114,7 @@ export default function CaseHomepage() {
 
                     {/* Regulatory Escalations tags (MAS/FIDReC/CEM) */}
                     <td className="py-4 px-6 text-center">
-                      <span className="text-[9px] font-black bg-[#E6308A]/10 text-[#E6308A] px-2 py-0.5 rounded-full">
+                      <span className="text-[9px] font-black bg-brand/10 text-brand px-2 py-0.5 rounded-full">
                         {c.escalationTag}
                       </span>
                     </td>

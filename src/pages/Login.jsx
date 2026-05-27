@@ -15,10 +15,10 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="min-h-screen w-screen bg-[#0A0A0A] flex flex-col md:flex-row text-white overflow-x-hidden font-sans">
+    <div className="min-h-screen w-screen bg-app-bg flex flex-col md:flex-row text-page-body overflow-x-hidden font-sans">
       
       {/* Left Column: Branded Panel with Gradient Art */}
-      <div className="flex-1 bg-[#0A0A0A] relative flex flex-col justify-between p-12 md:p-16 overflow-hidden border-r border-zinc-900">
+      <div className="flex-1 bg-card-bg relative flex flex-col justify-between p-12 md:p-16 overflow-hidden border-r border-card-border">
         {/* Decorative Grid Gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#E6308A]/15 via-[#C6E84F]/5 to-transparent pointer-events-none" />
         <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-gradient-to-tr from-[#9E005D]/20 to-[#E6308A]/5 blur-3xl pointer-events-none" />
@@ -29,8 +29,8 @@ export default function Login({ onLoginSuccess }) {
             M
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-sm tracking-widest text-[#E6308A] leading-none uppercase">
-              BUSINESS<span className="text-[#C6E84F]">NEXT</span>
+            <span className="font-extrabold text-sm tracking-widest text-brand leading-none uppercase">
+              BUSINESS<span className="text-lime">NEXT</span>
             </span>
             <span className="text-[10px] text-zinc-400 font-bold tracking-wider">Maybank CRM Ecosystem</span>
           </div>
@@ -38,7 +38,7 @@ export default function Login({ onLoginSuccess }) {
 
         {/* Narrative Tagline Block */}
         <div className="my-auto py-12 relative z-10">
-          <span className="text-[#C6E84F] text-xs font-bold uppercase tracking-widest bg-zinc-900 border border-zinc-800 px-3.5 py-1.5 rounded-full shadow-inner">
+          <span className="text-lime text-xs font-bold uppercase tracking-widest bg-zinc-900 border border-card-border px-3.5 py-1.5 rounded-full shadow-inner">
             Next Generation CRM
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold mt-6 leading-tight tracking-wide">
@@ -59,12 +59,12 @@ export default function Login({ onLoginSuccess }) {
       </div>
 
       {/* Right Column: White Authorization Card Form */}
-      <div className="flex-1 bg-[#0E0E10] flex items-center justify-center p-8 md:p-12 relative">
+      <div className="flex-1 bg-app-bg flex items-center justify-center p-8 md:p-12 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#C6E84F]/5 via-transparent to-transparent pointer-events-none" />
 
         {/* Sign In Card */}
         <div className="w-full max-w-md bg-white text-zinc-900 rounded-3xl p-8 shadow-2xl relative border border-zinc-150 transform hover:scale-[1.005] transition-all">
-          <h3 className="text-xl font-black text-[#E6308A] uppercase tracking-wide">
+          <h3 className="text-xl font-black text-brand uppercase tracking-wide">
             Account Sign In
           </h3>
           <p className="text-xs text-zinc-500 font-medium mt-1">
@@ -85,7 +85,7 @@ export default function Login({ onLoginSuccess }) {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="name@maybank.com.my"
-                  className="w-full h-10 border border-zinc-200 rounded-xl pl-10 pr-4 text-xs font-semibold focus:outline-none focus:border-[#E6308A] transition-colors bg-zinc-50/50"
+                  className="w-full h-10 border border-zinc-200 rounded-xl pl-10 pr-4 text-xs font-semibold focus:outline-none focus:border-brand transition-colors bg-zinc-50/50"
                 />
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function Login({ onLoginSuccess }) {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full h-10 border border-zinc-200 rounded-xl pl-10 pr-4 text-xs font-semibold focus:outline-none focus:border-[#E6308A] transition-colors bg-zinc-50/50"
+                  className="w-full h-10 border border-zinc-200 rounded-xl pl-10 pr-4 text-xs font-semibold focus:outline-none focus:border-brand transition-colors bg-zinc-50/50"
                 />
               </div>
             </div>
@@ -114,11 +114,11 @@ export default function Login({ onLoginSuccess }) {
                   type="checkbox" 
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-3.5 h-3.5 text-[#E6308A] border-zinc-300 rounded focus:ring-0" 
+                  className="w-3.5 h-3.5 text-brand border-zinc-300 rounded focus:ring-0" 
                 />
                 <span>Remember me on this node</span>
               </label>
-              <a href="#" className="hover:text-[#E6308A] transition-colors">
+              <a href="#" className="hover:text-brand transition-colors">
                 Recover credential?
               </a>
             </div>
@@ -135,14 +135,14 @@ export default function Login({ onLoginSuccess }) {
                   onClick={() => setAppMode('gcfs')}
                   className={`border-2 rounded-2xl p-3.5 cursor-pointer transition-all flex flex-col justify-between h-28 relative ${
                     appMode === 'gcfs' 
-                      ? 'border-[#E6308A] bg-[#E6308A]/5 shadow' 
+                      ? 'border-brand bg-brand/5 shadow' 
                       : 'border-zinc-200 hover:border-zinc-300 bg-white'
                   }`}
                 >
                   {appMode === 'gcfs' && (
-                    <CheckCircle2 className="w-4 h-4 text-[#E6308A] absolute top-2 right-2" />
+                    <CheckCircle2 className="w-4 h-4 text-brand absolute top-2 right-2" />
                   )}
-                  <Users className={`w-6 h-6 ${appMode === 'gcfs' ? 'text-[#E6308A]' : 'text-zinc-400'}`} />
+                  <Users className={`w-6 h-6 ${appMode === 'gcfs' ? 'text-brand' : 'text-zinc-400'}`} />
                   <div>
                     <h4 className="text-xs font-black text-zinc-800 leading-none">GCFS</h4>
                     <span className="text-[9px] text-zinc-400 font-semibold leading-tight block mt-1">
@@ -156,14 +156,14 @@ export default function Login({ onLoginSuccess }) {
                   onClick={() => setAppMode('ggb')}
                   className={`border-2 rounded-2xl p-3.5 cursor-pointer transition-all flex flex-col justify-between h-28 relative ${
                     appMode === 'ggb' 
-                      ? 'border-[#C6E84F] bg-[#C6E84F]/5 shadow' 
+                      ? 'border-lime bg-lime/5 shadow' 
                       : 'border-zinc-200 hover:border-zinc-300 bg-white'
                   }`}
                 >
                   {appMode === 'ggb' && (
-                    <CheckCircle2 className="w-4 h-4 text-[#C6E84F] absolute top-2 right-2 bg-black rounded-full" />
+                    <CheckCircle2 className="w-4 h-4 text-lime absolute top-2 right-2 bg-black rounded-full" />
                   )}
-                  <Globe className={`w-6 h-6 ${appMode === 'ggb' ? 'text-[#C6E84F] bg-black p-[2px] rounded' : 'text-zinc-400'}`} />
+                  <Globe className={`w-6 h-6 ${appMode === 'ggb' ? 'text-lime bg-black p-[2px] rounded' : 'text-zinc-400'}`} />
                   <div>
                     <h4 className="text-xs font-black text-zinc-800 leading-none">GGB</h4>
                     <span className="text-[9px] text-zinc-400 font-semibold leading-tight block mt-1">
@@ -177,7 +177,7 @@ export default function Login({ onLoginSuccess }) {
             {/* Action Trigger Submit */}
             <button 
               type="submit"
-              className="w-full h-11 rounded-xl bg-[#C6E84F] hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-widest shadow-lg flex items-center justify-center gap-2 mt-4 transform hover:translate-y-[-1px] transition-all"
+              className="w-full h-11 rounded-xl bg-lime hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-widest shadow-lg flex items-center justify-center gap-2 mt-4 transform hover:translate-y-[-1px] transition-all"
             >
               <span>Initialize Workspace</span>
             </button>
@@ -185,7 +185,7 @@ export default function Login({ onLoginSuccess }) {
 
           {/* Day 1 / Day 2 Hint Info Bar */}
           <div className="mt-5 p-3 rounded-xl bg-zinc-50 border border-zinc-150 text-[10px] text-zinc-500 font-semibold flex items-center justify-between">
-            <span className="text-[#E6308A] uppercase tracking-wider font-extrabold">Demo Info:</span>
+            <span className="text-brand uppercase tracking-wider font-extrabold">Demo Info:</span>
             <span className="text-zinc-600">Day 1 Workspace - GCFS / Day 2 Workspace - GGB</span>
           </div>
         </div>

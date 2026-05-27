@@ -20,34 +20,34 @@ export default function Case360({ id, onBack }) {
       {/* Back Button */}
       <button 
         onClick={onBack}
-        className="flex items-center gap-1.5 text-xs font-bold text-zinc-500 hover:text-[#E6308A] transition-colors"
+        className="flex items-center gap-1.5 text-xs font-bold text-zinc-500 hover:text-brand transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Ticket Log</span>
       </button>
 
       {/* 1. Header Branded Info Banner */}
-      <div className="bg-[#0A0A0A] text-white p-6 rounded-3xl shadow-xl border border-zinc-900 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="bg-card-bg text-page-body p-6 rounded-3xl shadow-xl border border-card-border flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <span className="text-[9px] text-[#E6308A] font-bold uppercase tracking-widest bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full">
+          <span className="text-[9px] text-brand font-bold uppercase tracking-widest bg-zinc-900 border border-card-border px-3 py-1 rounded-full">
             CARE Complaint Docket
           </span>
-          <h2 className="text-lg font-black mt-2 tracking-wide text-white">{currentCase.category}</h2>
+          <h2 className="text-lg font-black mt-2 tracking-wide text-page-body">{currentCase.category}</h2>
           <p className="text-[11px] text-zinc-400 font-semibold mt-1">
             Ticket ID: {currentCase.id} · Client: <strong className="text-zinc-200">{currentCase.customerName}</strong>
           </p>
         </div>
 
         <div className="flex gap-4">
-          <div className="bg-zinc-900/60 border border-zinc-800 p-3 rounded-2xl text-center min-w-[100px]">
+          <div className="bg-zinc-900/60 border border-card-border p-3 rounded-2xl text-center min-w-[100px]">
             <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider block">SLA Countdown</span>
             <span className={`text-sm font-black mt-0.5 block ${isBreached ? 'text-red-500 animate-pulse' : 'text-green-500'}`}>
               {isBreached ? `BREACHED` : `${currentCase.slaCountdownHours} Hrs`}
             </span>
           </div>
-          <div className="bg-zinc-900/60 border border-zinc-800 p-3 rounded-2xl text-center min-w-[100px]">
+          <div className="bg-zinc-900/60 border border-card-border p-3 rounded-2xl text-center min-w-[100px]">
             <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider block">Regulatory Esc</span>
-            <span className="text-sm font-black text-[#E6308A] mt-0.5 block">
+            <span className="text-sm font-black text-brand mt-0.5 block">
               {currentCase.escalationTag}
             </span>
           </div>
@@ -107,7 +107,7 @@ export default function Case360({ id, onBack }) {
             <div className="space-y-3.5 text-xs text-zinc-600 font-medium">
               {currentCase.auditTrail?.map((trail, idx) => (
                 <div key={idx} className="flex gap-3 items-start border-b border-zinc-50 pb-3 last:border-b-0">
-                  <div className="w-2 h-2 rounded-full bg-[#E6308A] mt-1.5 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-brand mt-1.5 flex-shrink-0" />
                   <p>{trail}</p>
                 </div>
               ))}

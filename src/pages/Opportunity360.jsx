@@ -50,32 +50,32 @@ export default function Opportunity360({ id, onBack }) {
       {/* Back Button */}
       <button 
         onClick={onBack}
-        className="flex items-center gap-1.5 text-xs font-bold text-zinc-500 hover:text-[#E6308A] transition-colors"
+        className="flex items-center gap-1.5 text-xs font-bold text-zinc-500 hover:text-brand transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Pipeline List</span>
       </button>
 
       {/* 1. Header Card Info */}
-      <div className="bg-[#0A0A0A] text-white p-6 rounded-3xl shadow-xl border border-zinc-900 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="bg-card-bg text-page-body p-6 rounded-3xl shadow-xl border border-card-border flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <span className="text-[9px] text-[#C6E84F] font-bold uppercase tracking-widest bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full">
+          <span className="text-[9px] text-lime font-bold uppercase tracking-widest bg-zinc-900 border border-card-border px-3 py-1 rounded-full">
             Pipeline Detail
           </span>
-          <h2 className="text-lg font-black mt-2 tracking-wide text-white">{currentOpp.name}</h2>
+          <h2 className="text-lg font-black mt-2 tracking-wide text-page-body">{currentOpp.name}</h2>
           <p className="text-[11px] text-zinc-400 font-semibold mt-1">
             Lead ID: {currentOpp.id} · Assigned Owner: <strong className="text-zinc-200">{currentOpp.assignedTo}</strong>
           </p>
         </div>
 
         <div className="flex gap-4">
-          <div className="bg-zinc-900/60 border border-zinc-800 p-3 rounded-2xl text-center min-w-[100px]">
+          <div className="bg-zinc-900/60 border border-card-border p-3 rounded-2xl text-center min-w-[100px]">
             <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider block">Estimated Value</span>
-            <span className="text-sm font-black text-[#C6E84F] mt-0.5 block">
+            <span className="text-sm font-black text-lime mt-0.5 block">
               MYR {(currentOpp.value).toLocaleString()}
             </span>
           </div>
-          <div className="bg-zinc-900/60 border border-zinc-800 p-3 rounded-2xl text-center min-w-[100px]">
+          <div className="bg-zinc-900/60 border border-card-border p-3 rounded-2xl text-center min-w-[100px]">
             <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider block">Probability Ratio</span>
             <span className="text-sm font-black text-[#3DBFD4] mt-0.5 block">
               {currentOpp.probability}%
@@ -106,7 +106,7 @@ export default function Opportunity360({ id, onBack }) {
                 key={idx} 
                 className={`p-3 rounded-xl border text-center transition-all ${
                   isActive 
-                    ? 'border-[#E6308A] bg-[#E6308A]/5 shadow-sm scale-[1.02]' 
+                    ? 'border-brand bg-brand/5 shadow-sm scale-[1.02]' 
                     : isCompleted 
                       ? 'border-green-300 bg-green-50 text-green-700' 
                       : 'border-zinc-200 text-zinc-400 bg-zinc-50'
@@ -167,7 +167,7 @@ export default function Opportunity360({ id, onBack }) {
             <div className="space-y-3.5 text-xs text-zinc-600 font-medium">
               {currentOpp.activities?.map((act, idx) => (
                 <div key={idx} className="flex gap-3 items-start border-b border-zinc-50 pb-3 last:border-b-0">
-                  <div className="w-2 h-2 rounded-full bg-[#E6308A] mt-1.5 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-brand mt-1.5 flex-shrink-0" />
                   <p>{act}</p>
                 </div>
               ))}
@@ -207,7 +207,7 @@ export default function Opportunity360({ id, onBack }) {
               {(!currentOpp.callLogs || currentOpp.callLogs.length === 0) && (
                 <div className="text-center py-4">
                   <span className="text-[10px] text-zinc-400 font-bold block">No call history recorded.</span>
-                  <button onClick={() => runAction('Outbound call memo')} className="h-7 px-3 bg-[#C6E84F] text-black font-extrabold text-[9px] uppercase tracking-wider rounded-xl mt-3 flex items-center gap-1 mx-auto">
+                  <button onClick={() => runAction('Outbound call memo')} className="h-7 px-3 bg-lime text-black font-extrabold text-[9px] uppercase tracking-wider rounded-xl mt-3 flex items-center gap-1 mx-auto">
                     <Play className="w-2.5 h-2.5 fill-current" />
                     <span>Dial customer</span>
                   </button>
@@ -220,13 +220,13 @@ export default function Opportunity360({ id, onBack }) {
           <div className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 space-y-4">
             <div className="pb-3 border-b border-zinc-100 flex items-center justify-between">
               <h3 className="text-xs font-black text-zinc-850 uppercase tracking-wider flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-[#E6308A] animate-pulse" />
+                <Sparkles className="w-4 h-4 text-brand animate-pulse" />
                 <span>AI Next Best Product</span>
               </h3>
             </div>
 
             <div className="p-3.5 bg-gradient-to-tr from-[#E6308A]/10 to-[#C6E84F]/10 border border-zinc-200 rounded-2xl">
-              <span className="text-[9px] font-black text-[#E6308A] uppercase block">Cross-sell match</span>
+              <span className="text-[9px] font-black text-brand uppercase block">Cross-sell match</span>
               <h4 className="text-xs font-extrabold text-zinc-800 mt-1">
                 {appMode === 'gcfs' ? 'Maybank Premier i-Takaful protection' : 'Green syndicated Shariah Trade Credit Line'}
               </h4>
@@ -235,7 +235,7 @@ export default function Opportunity360({ id, onBack }) {
                   ? "Matches the client's family legacy goal perfectly, offering high protection yields of 4.5% p.a."
                   : "Provides off-balance sheet export credit guarantee aligned with regional ESG trade compliance standards."}
               </p>
-              <button onClick={() => runAction('Offer email and WhatsApp message')} className="h-7 px-3 bg-[#E6308A] hover:bg-[#C92276] text-white font-extrabold text-[9px] uppercase tracking-wider rounded-xl mt-3 flex items-center gap-1">
+              <button onClick={() => runAction('Offer email and WhatsApp message')} className="h-7 px-3 bg-brand hover:bg-[#C92276] text-white font-extrabold text-[9px] uppercase tracking-wider rounded-xl mt-3 flex items-center gap-1">
                 <span>Send Offer Details</span>
               </button>
             </div>

@@ -75,17 +75,17 @@ export default function Customer360({ id, onBack }) {
       {/* Back to List row */}
       <button 
         onClick={onBack}
-        className="flex items-center gap-1.5 text-xs font-bold text-zinc-500 hover:text-[#E6308A] transition-colors"
+        className="flex items-center gap-1.5 text-xs font-bold text-zinc-500 hover:text-brand transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to {appMode === 'gcfs' ? 'Customer List' : 'Account Registry'}</span>
       </button>
 
       {/* 1. Global Info Strip */}
-      <div className="bg-[#0A0A0A] text-white p-5 rounded-3xl shadow-lg border border-zinc-900 grid grid-cols-2 md:grid-cols-6 gap-4 divide-y md:divide-y-0 md:divide-x divide-zinc-800">
+      <div className="bg-card-bg text-page-body p-5 rounded-3xl shadow-lg border border-card-border grid grid-cols-2 md:grid-cols-6 gap-4 divide-y md:divide-y-0 md:divide-x divide-zinc-800">
         <div className="pt-2 md:pt-0">
           <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">Customer ID</span>
-          <span className="text-xs font-black text-[#C6E84F] mt-1 block">{currentCustomer.id}</span>
+          <span className="text-xs font-black text-lime mt-1 block">{currentCustomer.id}</span>
         </div>
         <div className="pt-2 md:pt-0 md:pl-4">
           <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">Full Name</span>
@@ -93,7 +93,7 @@ export default function Customer360({ id, onBack }) {
         </div>
         <div className="pt-2 md:pt-0 md:pl-4">
           <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">Segment</span>
-          <span className="text-xs font-black text-[#E6308A] mt-1 block">{currentCustomer.segment}</span>
+          <span className="text-xs font-black text-brand mt-1 block">{currentCustomer.segment}</span>
         </div>
         <div className="pt-2 md:pt-0 md:pl-4">
           <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">CIF Code</span>
@@ -159,10 +159,10 @@ export default function Customer360({ id, onBack }) {
                 {/* Col 1: Customer Information Card */}
                 <div className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 space-y-4">
                   <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
-                    <h3 className="text-xs font-black text-[#E6308A] tracking-wider uppercase">
+                    <h3 className="text-xs font-black text-brand tracking-wider uppercase">
                       Customer Profile Info
                     </h3>
-                    <Edit3 onClick={() => setActiveModal('editProfile')} className="w-4 h-4 text-zinc-400 cursor-pointer hover:text-[#E6308A]" />
+                    <Edit3 onClick={() => setActiveModal('editProfile')} className="w-4 h-4 text-zinc-400 cursor-pointer hover:text-brand" />
                   </div>
                   
                   <div className="flex items-center gap-4">
@@ -171,7 +171,7 @@ export default function Customer360({ id, onBack }) {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-zinc-800 leading-snug">{currentCustomer.name}</h4>
-                      <span className="text-[10px] text-[#E6308A] font-extrabold uppercase bg-[#E6308A]/10 px-2.5 py-0.5 rounded-full inline-block mt-1">
+                      <span className="text-[10px] text-brand font-extrabold uppercase bg-brand/10 px-2.5 py-0.5 rounded-full inline-block mt-1">
                         {currentCustomer.segment}
                       </span>
                     </div>
@@ -205,7 +205,7 @@ export default function Customer360({ id, onBack }) {
                 <div className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
-                      <h3 className="text-xs font-black text-[#E6308A] tracking-wider uppercase">
+                      <h3 className="text-xs font-black text-brand tracking-wider uppercase">
                         Churn Advisory Hub
                       </h3>
                       <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
@@ -253,7 +253,7 @@ export default function Customer360({ id, onBack }) {
                 <div className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
-                      <h3 className="text-xs font-black text-[#E6308A] tracking-wider uppercase">
+                      <h3 className="text-xs font-black text-brand tracking-wider uppercase">
                         Keep-in-Touch Tracker
                       </h3>
                       <span className="text-[10px] font-extrabold text-green-600 bg-green-50 px-2 py-0.5 rounded">
@@ -271,7 +271,7 @@ export default function Customer360({ id, onBack }) {
                       {currentCustomer.keepInTouch?.timeline.map((tm, idx) => (
                         <div key={idx} className="relative">
                           <div className={`absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full border-2 ${
-                            tm.status === 'Completed' ? 'bg-[#C6E84F] border-black' : 'bg-white border-zinc-300'
+                            tm.status === 'Completed' ? 'bg-lime border-black' : 'bg-white border-zinc-300'
                           }`} />
                           <div className="flex justify-between items-center text-[10px] leading-tight">
                             <span className="font-extrabold text-zinc-800">{tm.subject}</span>
@@ -407,7 +407,7 @@ export default function Customer360({ id, onBack }) {
                     <div className="border border-zinc-350 p-2.5 rounded-xl bg-white shadow-sm">
                       <div className="flex justify-between items-center text-[10px] font-extrabold text-zinc-400 uppercase">
                         <span>Group Node (Household)</span>
-                        <span className="text-[#E6308A]">G-10294</span>
+                        <span className="text-brand">G-10294</span>
                       </div>
                       <div className="font-extrabold text-zinc-800 mt-1">
                         Zafrul Dynasty Holdings
@@ -510,10 +510,10 @@ export default function Customer360({ id, onBack }) {
                       <div>
                         <div className="flex justify-between items-center text-[10px] font-extrabold text-zinc-600 uppercase">
                           <span>Investment Target</span>
-                          <span className="text-[#E6308A]">MYR 5.00M / 10.00M</span>
+                          <span className="text-brand">MYR 5.00M / 10.00M</span>
                         </div>
                         <div className="w-full h-2 bg-zinc-100 rounded-full mt-1.5 overflow-hidden">
-                          <div className="w-1/2 h-full bg-[#E6308A]" />
+                          <div className="w-1/2 h-full bg-brand" />
                         </div>
                       </div>
 
@@ -556,7 +556,7 @@ export default function Customer360({ id, onBack }) {
 
                   <div className="flex justify-center py-4">
                     <div className="text-center">
-                      <div className="text-2xl font-black text-[#E6308A]">
+                      <div className="text-2xl font-black text-brand">
                         {currentCustomer.suitability?.score}
                       </div>
                       <span className="text-[10px] text-zinc-400 font-extrabold uppercase mt-1 block">
@@ -617,7 +617,7 @@ export default function Customer360({ id, onBack }) {
                     </div>
                   </div>
 
-                  <button onClick={() => setActiveModal('suitability')} className="w-full text-center py-2.5 bg-[#C6E84F] hover:opacity-90 rounded-xl text-[10px] font-black text-black uppercase tracking-widest mt-4 transition-all">
+                  <button onClick={() => setActiveModal('suitability')} className="w-full text-center py-2.5 bg-lime hover:opacity-90 rounded-xl text-[10px] font-black text-black uppercase tracking-widest mt-4 transition-all">
                     Initiate Suitability Assessment Workflow
                   </button>
                 </div>
@@ -636,7 +636,7 @@ export default function Customer360({ id, onBack }) {
                     >
                       <div>
                         <div className="flex justify-between items-center">
-                          <span className="text-[9px] font-black text-[#E6308A] uppercase tracking-widest bg-[#E6308A]/10 px-2 py-0.5 rounded">
+                          <span className="text-[9px] font-black text-brand uppercase tracking-widest bg-brand/10 px-2 py-0.5 rounded">
                             {goal.type}
                           </span>
                           <span className="text-xs font-black text-zinc-800">{goal.progress}% Achieved</span>
@@ -650,7 +650,7 @@ export default function Customer360({ id, onBack }) {
 
                       {/* Goal progress ring indicator */}
                       <div className="w-full h-1.5 bg-zinc-100 rounded-full overflow-hidden mt-4">
-                        <div className="h-full bg-[#C6E84F]" style={{ width: `${goal.progress}%` }} />
+                        <div className="h-full bg-lime" style={{ width: `${goal.progress}%` }} />
                       </div>
                     </div>
                   ))}
@@ -662,7 +662,7 @@ export default function Customer360({ id, onBack }) {
                       MyWealth Financial Health Index
                     </h4>
                     <p className="text-[11px] text-zinc-500 font-semibold mt-1">
-                      Zafrul Dynasty group has a financial planning compliance score of <strong className="text-[#E6308A]">88/100 (Excellent)</strong>.
+                      Zafrul Dynasty group has a financial planning compliance score of <strong className="text-brand">88/100 (Excellent)</strong>.
                     </p>
                   </div>
                   <button onClick={() => setActiveModal('application')} className="h-10 px-6 rounded-xl bg-gradient-to-r from-[#E6308A] to-[#9E005D] text-white text-[10px] font-extrabold uppercase tracking-widest shadow hover:opacity-95 transition-opacity">
@@ -759,7 +759,7 @@ export default function Customer360({ id, onBack }) {
 
                   <div className="border border-zinc-200 bg-white p-4 rounded-2xl">
                     <span className="text-[9px] text-zinc-400 font-black uppercase block">Re-KYC Due Horizon</span>
-                    <span className="text-sm font-black text-[#E6308A] mt-1 block">14 Feb 2028</span>
+                    <span className="text-sm font-black text-brand mt-1 block">14 Feb 2028</span>
                   </div>
 
                   <div className="border border-zinc-200 bg-white p-4 rounded-2xl">
@@ -838,7 +838,7 @@ export default function Customer360({ id, onBack }) {
                 {/* Col 1: Group Profile */}
                 <div className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 space-y-4">
                   <div className="pb-3 border-b border-zinc-100 flex justify-between items-center select-none">
-                    <h3 className="text-xs font-black text-[#E6308A] tracking-wider uppercase">
+                    <h3 className="text-xs font-black text-brand tracking-wider uppercase">
                       Corporate Identity
                     </h3>
                   </div>
@@ -882,7 +882,7 @@ export default function Customer360({ id, onBack }) {
                           <span className="text-[9px] font-black text-zinc-400 uppercase">
                             {sub.jurisdiction}
                           </span>
-                          <span className="text-[10px] font-extrabold text-[#E6308A]">
+                          <span className="text-[10px] font-extrabold text-brand">
                             {sub.relation}
                           </span>
                         </div>
@@ -934,7 +934,7 @@ export default function Customer360({ id, onBack }) {
                   <div className="space-y-4 text-xs">
                     <div>
                       <span className="text-[9px] text-zinc-400 font-black uppercase block">Total Facilities limits</span>
-                      <span className="text-lg font-black text-[#E6308A] mt-0.5 block">
+                      <span className="text-lg font-black text-brand mt-0.5 block">
                         MYR {(currentCustomer.relationshipExposure?.totalLimits / 1000000).toFixed(2)}M
                       </span>
                     </div>
@@ -1144,7 +1144,7 @@ export default function Customer360({ id, onBack }) {
 
                 <div className="mt-4 space-y-3">
                   {currentCustomer.termSheets?.map((sheet, idx) => (
-                    <div key={idx} className="p-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl flex justify-between items-center hover:border-[#E6308A] transition-colors cursor-pointer">
+                    <div key={idx} className="p-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl flex justify-between items-center hover:border-brand transition-colors cursor-pointer">
                       <div>
                         <h4 className="text-xs font-bold text-zinc-800">{sheet.name}</h4>
                         <span className="text-[9px] text-[#3DBFD4] font-black uppercase block mt-1">

@@ -46,7 +46,7 @@ export default function DashboardsHomepage() {
               onClick={() => setActiveTab(tab)}
               className={`${
                 activeTab === tab
-                  ? 'border-[#E6308A] text-[#E6308A]'
+                  ? 'border-brand text-brand'
                   : 'border-transparent text-zinc-500 hover:text-zinc-700 hover:border-zinc-300'
               } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
             >
@@ -65,11 +65,11 @@ export default function DashboardsHomepage() {
             placeholder="Search dashboards..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 border border-zinc-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#E6308A]/20 focus:border-[#E6308A]"
+            className="w-full pl-9 pr-4 py-2 border border-zinc-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#E6308A]/20 focus:border-brand"
           />
         </div>
         
-        <button onClick={() => setDashboardAction('new')} className="flex items-center gap-2 px-4 py-2 bg-[#E6308A] text-white rounded-lg text-sm font-medium hover:bg-[#D42B7D] transition-colors shadow-sm shadow-[#E6308A]/20">
+        <button onClick={() => setDashboardAction('new')} className="flex items-center gap-2 px-4 py-2 bg-brand text-white rounded-lg text-sm font-medium hover:bg-[#D42B7D] transition-colors shadow-sm shadow-[#E6308A]/20">
           <Plus className="w-4 h-4" />
           New Dashboard
         </button>
@@ -81,10 +81,10 @@ export default function DashboardsHomepage() {
           <div 
             key={dashboard.id} 
             onClick={() => setSelectedDashboardId(dashboard.id)}
-            className="bg-white rounded-xl shadow-sm border border-zinc-100 p-5 hover:shadow-md hover:border-[#E6308A]/30 transition-all group cursor-pointer flex flex-col"
+            className="bg-white rounded-xl shadow-sm border border-zinc-100 p-5 hover:shadow-md hover:border-brand/30 transition-all group cursor-pointer flex flex-col"
           >
             <div className="flex items-start justify-between mb-4">
-              <div className="w-10 h-10 rounded-lg bg-[#E6308A]/10 flex items-center justify-center text-[#E6308A]">
+              <div className="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center text-brand">
                 <LayoutDashboard className="w-5 h-5" />
               </div>
               <div className="flex items-center gap-1">
@@ -103,7 +103,7 @@ export default function DashboardsHomepage() {
               </div>
             </div>
             
-            <h3 className="font-semibold text-zinc-900 group-hover:text-[#E6308A] transition-colors mb-2">
+            <h3 className="font-semibold text-zinc-900 group-hover:text-brand transition-colors mb-2">
               {dashboard.name}
             </h3>
             
@@ -146,7 +146,7 @@ export default function DashboardsHomepage() {
           ))}
           <div className="flex justify-end gap-2 pt-4">
             <button onClick={() => setDashboardAction(null)} className="px-4 py-2 font-bold text-zinc-600">Cancel</button>
-            <button onClick={() => setDashboardAction(null)} className="px-5 py-2 rounded-lg bg-[#E6308A] text-white font-bold">Save</button>
+            <button onClick={() => setDashboardAction(null)} className="px-5 py-2 rounded-lg bg-brand text-white font-bold">Save</button>
           </div>
         </div>
       </Modal>

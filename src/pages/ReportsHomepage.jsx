@@ -56,7 +56,7 @@ export default function ReportsHomepage() {
               onClick={() => setActiveTab(tab)}
               className={`${
                 activeTab === tab
-                  ? 'border-[#E6308A] text-[#E6308A]'
+                  ? 'border-brand text-brand'
                   : 'border-transparent text-zinc-500 hover:text-zinc-700 hover:border-zinc-300'
               } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
             >
@@ -76,10 +76,10 @@ export default function ReportsHomepage() {
               placeholder="Search reports by name or category..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 border border-zinc-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#E6308A]/20 focus:border-[#E6308A]"
+              className="w-full pl-9 pr-4 py-2 border border-zinc-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#E6308A]/20 focus:border-brand"
             />
           </div>
-          <button onClick={() => setReportAction('filter')} className="p-2 border border-zinc-200 rounded-lg text-zinc-600 hover:bg-zinc-50 hover:text-[#E6308A] transition-colors">
+          <button onClick={() => setReportAction('filter')} className="p-2 border border-zinc-200 rounded-lg text-zinc-600 hover:bg-zinc-50 hover:text-brand transition-colors">
             <Filter className="w-4 h-4" />
           </button>
         </div>
@@ -87,7 +87,7 @@ export default function ReportsHomepage() {
         <div className="flex items-center gap-3">
           <button 
             onClick={() => setViewMode('builder')}
-            className="flex items-center gap-2 px-4 py-2 bg-[#E6308A] text-white rounded-lg text-sm font-medium hover:bg-[#D42B7D] transition-colors shadow-sm shadow-[#E6308A]/20"
+            className="flex items-center gap-2 px-4 py-2 bg-brand text-white rounded-lg text-sm font-medium hover:bg-[#D42B7D] transition-colors shadow-sm shadow-[#E6308A]/20"
           >
             <Plus className="w-4 h-4" />
             Create Report
@@ -118,11 +118,11 @@ export default function ReportsHomepage() {
                 >
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#E6308A]/10 flex items-center justify-center text-[#E6308A]">
+                      <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center text-brand">
                         <FileBarChart2 className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="font-medium text-zinc-900 group-hover:text-[#E6308A] transition-colors">
+                        <div className="font-medium text-zinc-900 group-hover:text-brand transition-colors">
                           {report.name}
                         </div>
                         <div className="text-xs text-zinc-500 mt-0.5 truncate max-w-xs">{report.description}</div>
@@ -156,7 +156,7 @@ export default function ReportsHomepage() {
                   <td className="px-6 py-4">
                     <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button 
-                        className="p-1.5 text-zinc-400 hover:text-[#E6308A] hover:bg-[#E6308A]/10 rounded" 
+                        className="p-1.5 text-zinc-400 hover:text-brand hover:bg-brand/10 rounded" 
                         title="View"
                         onClick={(e) => { e.stopPropagation(); setSelectedReportId(report.id); setViewMode('viewer'); }}
                       >
@@ -204,9 +204,9 @@ export default function ReportsHomepage() {
             ? ['PDF executive pack', 'Excel workbook', 'CSV raw data with RBAC masking', 'PowerPoint chart pack']
             : ['Schedule delivery', 'Duplicate as template', 'Share with branch/team', 'View audit history']
           ).map((item) => (
-            <button key={item} onClick={() => setReportAction(null)} className="w-full flex justify-between items-center p-3 bg-zinc-50 border border-zinc-200 rounded-lg font-bold hover:border-[#E6308A]">
+            <button key={item} onClick={() => setReportAction(null)} className="w-full flex justify-between items-center p-3 bg-zinc-50 border border-zinc-200 rounded-lg font-bold hover:border-brand">
               <span>{item}</span>
-              <span className="text-[#E6308A]">Apply</span>
+              <span className="text-brand">Apply</span>
             </button>
           ))}
         </div>

@@ -39,7 +39,7 @@ export default function ReportBuilderWizard({ onCancel, onSave }) {
             disabled={currentStep < 4}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm ${
               currentStep === 4 
-                ? 'bg-[#E6308A] text-white hover:bg-[#D42B7D] shadow-[#E6308A]/20' 
+                ? 'bg-brand text-white hover:bg-[#D42B7D] shadow-[#E6308A]/20' 
                 : 'bg-zinc-100 text-zinc-400 cursor-not-allowed'
             }`}
           >
@@ -58,28 +58,28 @@ export default function ReportBuilderWizard({ onCancel, onSave }) {
               return (
                 <li key={step.title} className={`relative pr-8 sm:pr-20 ${index === steps.length - 1 ? 'pr-0 sm:pr-0' : ''}`}>
                   <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                    <div className={`h-0.5 w-full ${currentStep > step.id ? 'bg-[#E6308A]' : 'bg-zinc-200'}`} />
+                    <div className={`h-0.5 w-full ${currentStep > step.id ? 'bg-brand' : 'bg-zinc-200'}`} />
                   </div>
                   <button
                     onClick={() => setCurrentStep(step.id)}
                     className={`relative flex h-8 w-8 items-center justify-center rounded-full ${
                       currentStep > step.id
-                        ? 'bg-[#E6308A] hover:bg-[#D42B7D]'
+                        ? 'bg-brand hover:bg-[#D42B7D]'
                         : currentStep === step.id
-                        ? 'border-2 border-[#E6308A] bg-white'
+                        ? 'border-2 border-brand bg-white'
                         : 'border-2 border-zinc-300 bg-white hover:border-zinc-400'
                     }`}
                   >
                     {currentStep > step.id ? (
                       <CheckCircle2 className="h-5 w-5 text-white" aria-hidden="true" />
                     ) : (
-                      <span className={`text-xs font-semibold ${currentStep === step.id ? 'text-[#E6308A]' : 'text-zinc-500'}`}>
+                      <span className={`text-xs font-semibold ${currentStep === step.id ? 'text-brand' : 'text-zinc-500'}`}>
                         {step.id}
                       </span>
                     )}
                   </button>
                   <div className="absolute top-10 left-1/2 -translate-x-1/2 w-32 text-center">
-                     <p className={`text-xs font-semibold ${currentStep === step.id ? 'text-[#E6308A]' : 'text-zinc-500'}`}>{step.title}</p>
+                     <p className={`text-xs font-semibold ${currentStep === step.id ? 'text-brand' : 'text-zinc-500'}`}>{step.title}</p>
                   </div>
                 </li>
               );
@@ -99,7 +99,7 @@ export default function ReportBuilderWizard({ onCancel, onSave }) {
               
               <div className="grid grid-cols-2 gap-4">
                 {['Customers (CIF)', 'Opportunities / Deals', 'Service Requests (CARE)', 'Transactions', 'Campaigns', 'Audit Logs'].map((source, i) => (
-                  <div key={i} className={`p-4 rounded-xl border ${i === 1 ? 'border-[#E6308A] bg-pink-50/50' : 'border-zinc-200 hover:border-zinc-300 cursor-pointer'}`}>
+                  <div key={i} className={`p-4 rounded-xl border ${i === 1 ? 'border-brand bg-pink-50/50' : 'border-zinc-200 hover:border-zinc-300 cursor-pointer'}`}>
                     <div className="font-medium text-zinc-900">{source}</div>
                   </div>
                 ))}

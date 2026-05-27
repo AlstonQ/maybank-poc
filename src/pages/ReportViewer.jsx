@@ -52,7 +52,7 @@ export default function ReportViewer({ onBack, reportId }) {
             <Share2 className="w-4 h-4" />
           </button>
           <div className="relative group">
-            <button className="flex items-center gap-2 px-4 py-2 bg-[#0A0A0A] text-white rounded-lg text-sm font-medium hover:bg-black transition-colors shadow-sm">
+            <button className="flex items-center gap-2 px-4 py-2 bg-card-bg text-page-body rounded-lg text-sm font-medium hover:bg-black transition-colors shadow-sm">
               <Download className="w-4 h-4" />
               Export Options
             </button>
@@ -81,7 +81,7 @@ export default function ReportViewer({ onBack, reportId }) {
               placeholder="Search within report..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-1.5 border border-zinc-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#E6308A]/20 focus:border-[#E6308A]"
+              className="w-full pl-9 pr-4 py-1.5 border border-zinc-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#E6308A]/20 focus:border-brand"
             />
           </div>
           <button onClick={() => runAction('Filter applied')} className="flex items-center gap-2 px-3 py-1.5 border border-zinc-200 rounded-lg text-sm font-medium text-zinc-600 hover:bg-zinc-50">

@@ -136,7 +136,7 @@ export default function OpportunityHomepage() {
         {/* Pipeline Funnel Analysis */}
         <div className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 flex flex-col justify-between min-h-[300px]">
           <div className="pb-3 border-b border-zinc-100 select-none">
-            <h3 className="text-xs font-black text-[#E6308A] tracking-wider uppercase">
+            <h3 className="text-xs font-black text-brand tracking-wider uppercase">
               Lead Pipeline Analysis Funnel
             </h3>
           </div>
@@ -164,7 +164,7 @@ export default function OpportunityHomepage() {
         {/* Source-wise leads bar chart */}
         <div className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 flex flex-col justify-between min-h-[300px]">
           <div className="pb-3 border-b border-zinc-100 select-none">
-            <h3 className="text-xs font-black text-[#E6308A] tracking-wider uppercase">
+            <h3 className="text-xs font-black text-brand tracking-wider uppercase">
               Source-Wise Leads Analysis
             </h3>
           </div>
@@ -193,7 +193,7 @@ export default function OpportunityHomepage() {
         <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-zinc-100">
           <div className="flex gap-2">
             <button onClick={() => setActionModal('lead')} className="h-8 px-3.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-xl text-[10px] font-extrabold uppercase tracking-widest flex items-center gap-1.5 shadow">
-              <PlusCircle className="w-3.5 h-3.5 text-[#C6E84F]" />
+              <PlusCircle className="w-3.5 h-3.5 text-lime" />
               <span>{appMode === 'gcfs' ? 'Add Lead' : 'Originate Deal'}</span>
             </button>
             <button onClick={() => setActionModal('view')} className="h-8 px-3.5 border border-zinc-200 hover:bg-zinc-50 rounded-xl text-[10px] font-extrabold uppercase text-zinc-600 tracking-wider">
@@ -222,7 +222,7 @@ export default function OpportunityHomepage() {
                 onClick={() => setActiveLetter(letter)}
                 className={`w-6 h-6 rounded-lg text-[9px] font-extrabold flex items-center justify-center transition-all ${
                   activeLetter === letter 
-                    ? 'bg-[#E6308A] text-white shadow-sm' 
+                    ? 'bg-brand text-white shadow-sm' 
                     : 'hover:bg-zinc-100 text-zinc-400 hover:text-zinc-700'
                 }`}
               >
@@ -256,13 +256,13 @@ export default function OpportunityHomepage() {
                   className="hover:bg-zinc-50/80 cursor-pointer transition-all"
                 >
                   <td className="py-4 px-6 text-zinc-500 font-bold">{opp.id}</td>
-                  <td className="py-4 px-6 font-extrabold text-zinc-800 hover:text-[#E6308A] transition-all">
+                  <td className="py-4 px-6 font-extrabold text-zinc-800 hover:text-brand transition-all">
                     {opp.customerName}
                   </td>
                   <td className="py-4 px-6 text-zinc-400">{opp.mobileMasked}</td>
                   <td className="py-4 px-6 text-zinc-400">{opp.emailMasked}</td>
                   <td className="py-4 px-6">
-                    <span className="text-[10px] font-extrabold uppercase text-[#E6308A] bg-[#E6308A]/10 px-2.5 py-0.5 rounded-full inline-block">
+                    <span className="text-[10px] font-extrabold uppercase text-brand bg-brand/10 px-2.5 py-0.5 rounded-full inline-block">
                       {opp.product}
                     </span>
                   </td>
@@ -317,7 +317,7 @@ export default function OpportunityHomepage() {
           )}
           <div className="flex justify-end gap-2 pt-4 border-t border-zinc-100">
             <button onClick={() => setActionModal(null)} className="px-4 py-2 font-bold text-zinc-600">Cancel</button>
-            <button onClick={() => setActionModal(null)} className="px-5 py-2 rounded-lg bg-[#E6308A] text-white font-bold">Apply</button>
+            <button onClick={() => setActionModal(null)} className="px-5 py-2 rounded-lg bg-brand text-white font-bold">Apply</button>
           </div>
         </div>
       </Modal>

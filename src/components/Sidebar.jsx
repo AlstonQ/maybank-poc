@@ -25,20 +25,20 @@ export default function Sidebar() {
 
   return (
     <div 
-      className={`h-screen bg-[#0A0A0A] text-white flex flex-col transition-all-300 relative z-40 border-r border-zinc-900 ${
+      className={`h-screen bg-header-bg text-white flex flex-col transition-all-300 relative z-40 border-r border-[#464848] ${
         expanded ? 'w-64' : 'w-[64px]'
       }`}
     >
       {/* Top Toggle Row */}
-      <div className="h-16 flex items-center justify-between px-4 border-b border-zinc-900">
+      <div className="h-16 flex items-center justify-between px-4 border-b border-[#464848]">
         {expanded && (
-          <span className="font-bold text-[#E6308A] text-xs tracking-widest uppercase">
+          <span className="font-bold text-brand text-xs tracking-widest uppercase">
             MODULE ECONOMY
           </span>
         )}
         <button 
           onClick={() => setExpanded(!expanded)}
-          className="p-1.5 hover:bg-zinc-800 rounded-lg text-zinc-400 hover:text-white transition-colors mx-auto"
+          className="p-1.5 hover:bg-[#464848] rounded-lg text-zinc-400 hover:text-white transition-colors mx-auto"
         >
           {expanded ? <ChevronLeft className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -46,7 +46,7 @@ export default function Sidebar() {
 
       {/* Expanded Object Search */}
       {expanded && (
-        <div className="p-3 border-b border-zinc-900">
+        <div className="p-3 border-b border-[#464848]">
           <div className="relative">
             <Search className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-zinc-500" />
             <input 
@@ -54,7 +54,7 @@ export default function Sidebar() {
               value={filterQuery}
               onChange={(e) => setFilterQuery(e.target.value)}
               placeholder="Search object..."
-              className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#E6308A]"
+              className="w-full bg-[#292A2A] border border-[#464848] rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-brand"
             />
           </div>
         </div>
@@ -70,14 +70,14 @@ export default function Sidebar() {
             <button
               key={idx}
               onClick={() => setActiveModule(mod.name)}
-              className={`w-full flex items-center py-3.5 px-4 transition-colors relative hover:bg-zinc-900 group ${
-                isActive ? 'text-[#C6E84F]' : 'text-zinc-400 hover:text-white'
+              className={`w-full flex items-center py-3.5 px-4 transition-colors relative hover:bg-[#292A2A] group ${
+                isActive ? 'text-white' : 'text-zinc-400 hover:text-white'
               }`}
               title={mod.name}
             >
               {/* Highlight Pill */}
               {isActive && (
-                <div className="absolute left-0 top-1.5 bottom-1.5 w-1 bg-[#C6E84F] rounded-r-md" />
+                <div className="absolute left-0 top-1.5 bottom-1.5 w-1 bg-white rounded-r-md" />
               )}
               
               <Icon className="w-5 h-5 flex-shrink-0" />
@@ -90,7 +90,7 @@ export default function Sidebar() {
 
               {/* Tooltip for collapsed state */}
               {!expanded && (
-                <div className="absolute left-16 bg-[#0E0E10] text-xs font-semibold px-2 py-1.5 rounded shadow-xl border border-zinc-800 hidden group-hover:block whitespace-nowrap z-50">
+                <div className="absolute left-16 bg-header-bg text-xs font-semibold px-2 py-1.5 rounded shadow-xl border border-[#464848] hidden group-hover:block whitespace-nowrap z-50">
                   {mod.name}
                 </div>
               )}

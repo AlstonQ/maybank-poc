@@ -45,18 +45,18 @@ export function GenerateProposalDrawer({ isOpen, onClose, customer }) {
         <div className="p-4 bg-white border border-zinc-200 rounded-xl space-y-3">
           <h4 className="font-bold text-zinc-800">Proposal Configuration</h4>
           <label className="flex items-center gap-2">
-            <input type="checkbox" defaultChecked className="rounded text-[#E6308A]" />
+            <input type="checkbox" defaultChecked className="rounded text-brand" />
             <span className="font-medium text-zinc-600">Include Next Best Offers (NBO)</span>
           </label>
           <label className="flex items-center gap-2">
-            <input type="checkbox" defaultChecked className="rounded text-[#E6308A]" />
+            <input type="checkbox" defaultChecked className="rounded text-brand" />
             <span className="font-medium text-zinc-600">Include Current Holdings Summary</span>
           </label>
         </div>
       </div>
       <div className="p-4 border-t border-zinc-200 bg-white flex justify-end gap-2">
         <button onClick={onClose} className="px-4 py-2 text-xs font-bold text-zinc-600 hover:bg-zinc-100 rounded-lg">Cancel</button>
-        <button onClick={onClose} className="px-5 py-2 text-xs font-bold text-black bg-[#C6E84F] hover:opacity-90 rounded-lg uppercase tracking-wider">Export PDF</button>
+        <button onClick={onClose} className="px-5 py-2 text-xs font-bold text-black bg-lime hover:opacity-90 rounded-lg uppercase tracking-wider">Export PDF</button>
       </div>
     </ContextualDrawer>
   );
@@ -66,8 +66,8 @@ export function CrossSellDrawer({ isOpen, onClose, customer }) {
   return (
     <ContextualDrawer isOpen={isOpen} onClose={onClose} title="Cross-Sell Recommendations" width="w-[500px]" icon={ShoppingBag}>
       <div className="p-6 space-y-4 text-xs bg-zinc-50 flex-1">
-        <div className="p-4 bg-[#0A0A0A] rounded-xl text-white space-y-2">
-          <span className="text-[10px] text-[#C6E84F] font-bold uppercase tracking-wider block">AI Recommendation</span>
+        <div className="p-4 bg-card-bg rounded-xl text-white space-y-2">
+          <span className="text-[10px] text-lime font-bold uppercase tracking-wider block">AI Recommendation</span>
           <h4 className="font-bold text-sm">Maybank Islamic Zest-i</h4>
           <p className="text-zinc-400">High propensity to convert based on recent maturity of fixed deposits.</p>
           <button onClick={onClose} className="mt-3 px-4 py-2 bg-white text-black text-xs font-bold rounded-lg w-full hover:bg-zinc-200 transition-colors">
@@ -86,21 +86,21 @@ export function ReKycModal({ isOpen, onClose }) {
         <p className="text-zinc-600 font-medium">Select the components you wish to include in this Re-KYC cycle:</p>
         <div className="space-y-2">
           <label className="flex items-center gap-2 p-3 bg-zinc-50 border border-zinc-200 rounded-lg">
-            <input type="checkbox" defaultChecked className="rounded text-[#E6308A]" />
+            <input type="checkbox" defaultChecked className="rounded text-brand" />
             <span className="font-bold text-zinc-800">ID Verification (Biometric)</span>
           </label>
           <label className="flex items-center gap-2 p-3 bg-zinc-50 border border-zinc-200 rounded-lg">
-            <input type="checkbox" defaultChecked className="rounded text-[#E6308A]" />
+            <input type="checkbox" defaultChecked className="rounded text-brand" />
             <span className="font-bold text-zinc-800">Proof of Address Check</span>
           </label>
           <label className="flex items-center gap-2 p-3 bg-zinc-50 border border-zinc-200 rounded-lg">
-            <input type="checkbox" defaultChecked className="rounded text-[#E6308A]" />
+            <input type="checkbox" defaultChecked className="rounded text-brand" />
             <span className="font-bold text-zinc-800">AML / Sanctions Screening</span>
           </label>
         </div>
         <div className="flex justify-end gap-2 pt-4 border-t border-zinc-100 mt-6">
           <button onClick={onClose} className="px-4 py-2 font-bold text-zinc-600">Cancel</button>
-          <button onClick={onClose} className="px-5 py-2 font-bold text-white bg-[#E6308A] rounded-lg">Send to Maker</button>
+          <button onClick={onClose} className="px-5 py-2 font-bold text-white bg-brand rounded-lg">Send to Maker</button>
         </div>
       </div>
     </Modal>
@@ -145,7 +145,7 @@ export function CkycPanel({ isOpen, onClose }) {
         </div>
       </div>
       <div className="p-4 border-t border-zinc-200 bg-white flex justify-end gap-2">
-        <button onClick={onClose} className="px-5 py-2 text-xs font-bold text-black bg-[#C6E84F] hover:opacity-90 rounded-lg">Sync Registry</button>
+        <button onClick={onClose} className="px-5 py-2 text-xs font-bold text-black bg-lime hover:opacity-90 rounded-lg">Sync Registry</button>
       </div>
     </ContextualDrawer>
   );
@@ -156,11 +156,11 @@ export function KnowledgeDrawer({ isOpen, onClose }) {
     <ContextualDrawer isOpen={isOpen} onClose={onClose} title="Knowledge Base" width="w-[400px]" icon={BookOpen}>
       <div className="p-6 space-y-4 text-xs bg-zinc-50 flex-1">
         <div className="space-y-3">
-          <div className="p-3 bg-white border border-zinc-200 rounded-lg hover:border-[#E6308A] cursor-pointer transition-colors">
+          <div className="p-3 bg-white border border-zinc-200 rounded-lg hover:border-brand cursor-pointer transition-colors">
             <h4 className="font-bold text-zinc-800">Wealth Planning Guidelines</h4>
             <p className="text-[10px] text-zinc-500 mt-1">Read the latest compliance requirements for High Net Worth individuals.</p>
           </div>
-          <div className="p-3 bg-white border border-zinc-200 rounded-lg hover:border-[#E6308A] cursor-pointer transition-colors">
+          <div className="p-3 bg-white border border-zinc-200 rounded-lg hover:border-brand cursor-pointer transition-colors">
             <h4 className="font-bold text-zinc-800">Vulnerable Customer Policy v2.4</h4>
             <p className="text-[10px] text-zinc-500 mt-1">Standard operating procedures for managing vulnerable segments.</p>
           </div>
@@ -261,24 +261,24 @@ export function GenericActionDrawer({ isOpen, onClose, action, customer, activeS
           ))}
         </div>
 
-        <div className="bg-[#0A0A0A] text-white rounded-2xl p-4">
-          <span className="text-[10px] text-[#C6E84F] font-black uppercase tracking-wider">Workflow actions</span>
+        <div className="bg-card-bg text-page-body rounded-2xl p-4">
+          <span className="text-[10px] text-lime font-black uppercase tracking-wider">Workflow actions</span>
           <div className="grid grid-cols-1 gap-2 mt-3">
             {cfg.actions.map((item) => (
               <button
                 key={item}
                 onClick={onClose}
-                className="flex items-center justify-between rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 px-3 py-2 text-[11px] font-bold transition-colors"
+                className="flex items-center justify-between rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-card-border px-3 py-2 text-[11px] font-bold transition-colors"
               >
                 <span>{item}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#E6308A]" />
+                <ArrowRight className="w-3.5 h-3.5 text-brand" />
               </button>
             ))}
           </div>
         </div>
 
         <div className="bg-white border border-dashed border-zinc-300 rounded-2xl p-4 flex items-center gap-3 text-zinc-500">
-          <Upload className="w-4 h-4 text-[#E6308A]" />
+          <Upload className="w-4 h-4 text-brand" />
           <span className="font-semibold">Mock audit log will capture create, edit, export, and approval actions.</span>
         </div>
       </div>

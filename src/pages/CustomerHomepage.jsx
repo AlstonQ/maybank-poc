@@ -70,7 +70,7 @@ export default function CustomerHomepage() {
               ▲ 12% QTD Growth
             </span>
           </div>
-          <div className="w-10 h-10 rounded-xl bg-[#E6308A]/10 text-[#E6308A] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
             <Users className="w-5 h-5" />
           </div>
         </div>
@@ -81,14 +81,14 @@ export default function CustomerHomepage() {
             <span className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wide">
               Portfolio AUM
             </span>
-            <h3 className="text-xl font-black text-[#E6308A] mt-1">
+            <h3 className="text-xl font-black text-brand mt-1">
               MYR {(totalAUM / 1000000).toFixed(2)}M
             </h3>
             <span className="text-[9px] text-green-600 font-bold flex items-center mt-1">
               ▲ 4.5% vs Last Mo
             </span>
           </div>
-          <div className="w-10 h-10 rounded-xl bg-[#C6E84F]/20 text-zinc-800 flex items-center justify-center font-bold">
+          <div className="w-10 h-10 rounded-xl bg-lime/20 text-zinc-800 flex items-center justify-center font-bold">
             RM
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function CustomerHomepage() {
               onClick={() => setSegmentFilter(seg)}
               className={`h-7 px-3.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-colors ${
                 segmentFilter === seg 
-                  ? 'bg-[#E6308A] text-white' 
+                  ? 'bg-brand text-white' 
                   : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-600'
               }`}
             >
@@ -154,7 +154,7 @@ export default function CustomerHomepage() {
           <div className="text-[10px] font-bold text-zinc-400 bg-zinc-50 border border-zinc-200 px-3 py-1.5 rounded-xl">
             {filteredCustomers.length} Records Found
           </div>
-          <button onClick={() => setCreateOpen(true)} className="h-8 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-[#C6E84F] text-[10px] font-extrabold uppercase tracking-widest flex items-center gap-1.5 transition-colors shadow">
+          <button onClick={() => setCreateOpen(true)} className="h-8 px-4 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-[10px] font-extrabold uppercase tracking-widest flex items-center gap-1.5 transition-colors shadow">
             <UserPlus className="w-3.5 h-3.5" />
             <span>+ Add {appMode === 'gcfs' ? 'Client' : 'Account'}</span>
           </button>
@@ -169,7 +169,7 @@ export default function CustomerHomepage() {
             <div 
               key={idx}
               onClick={() => setSelectedCustomerId(cust.id)}
-              className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 hover:border-[#E6308A] cursor-pointer hover:shadow-lg transition-all flex flex-col justify-between h-[230px] group relative overflow-hidden"
+              className="bg-white rounded-3xl p-5 shadow-sm border border-zinc-200 hover:border-brand cursor-pointer hover:shadow-lg transition-all flex flex-col justify-between h-[230px] group relative overflow-hidden"
             >
               {/* Top Row: photo, name, segment */}
               <div className="flex gap-3">
@@ -177,16 +177,16 @@ export default function CustomerHomepage() {
                   {appMode === 'gcfs' ? (
                     <img src={cust.photoUrl || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"} alt={cust.name} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex items-center justify-center font-black text-xs text-[#C6E84F] border border-zinc-700">
+                    <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex items-center justify-center font-black text-xs text-lime border border-zinc-700">
                       {cust.name.split(' ')[0][0]}{cust.name.split(' ')[1]?.[0] || ''}
                     </div>
                   )}
                 </div>
                 <div className="min-w-0">
-                  <span className="text-[9px] font-extrabold text-[#E6308A] uppercase bg-[#E6308A]/10 px-2 py-0.5 rounded-full inline-block">
+                  <span className="text-[9px] font-extrabold text-brand uppercase bg-brand/10 px-2 py-0.5 rounded-full inline-block">
                     {cust.segment}
                   </span>
-                  <h4 className="text-sm font-extrabold text-zinc-800 leading-snug mt-1 truncate group-hover:text-[#E6308A] transition-colors">
+                  <h4 className="text-sm font-extrabold text-zinc-800 leading-snug mt-1 truncate group-hover:text-brand transition-colors">
                     {cust.name}
                   </h4>
                   <span className="text-[10px] text-zinc-400 font-semibold block mt-0.5">
@@ -255,11 +255,11 @@ export default function CustomerHomepage() {
                     className="hover:bg-zinc-50/80 cursor-pointer transition-colors"
                   >
                     <td className="py-4 px-6 text-zinc-500 font-bold">{cust.id}</td>
-                    <td className="py-4 px-6 font-extrabold text-zinc-800 hover:text-[#E6308A] transition-colors">
+                    <td className="py-4 px-6 font-extrabold text-zinc-800 hover:text-brand transition-colors">
                       {cust.name}
                     </td>
                     <td className="py-4 px-6">
-                      <span className="text-[9px] font-extrabold text-[#E6308A] uppercase bg-[#E6308A]/10 px-2.5 py-0.5 rounded-full">
+                      <span className="text-[9px] font-extrabold text-brand uppercase bg-brand/10 px-2.5 py-0.5 rounded-full">
                         {cust.segment}
                       </span>
                     </td>

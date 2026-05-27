@@ -39,7 +39,7 @@ export default function GGBPlacematViewer({ onBack, dashboardId }) {
           </div>
         </div>
         <div className="flex items-center gap-2">
-           <button onClick={() => setShowExportModal(true)} className="flex items-center gap-2 px-4 py-2 bg-[#0A0A0A] text-white rounded-lg text-sm font-medium hover:bg-black transition-colors shadow-sm">
+           <button onClick={() => setShowExportModal(true)} className="flex items-center gap-2 px-4 py-2 bg-card-bg text-page-body rounded-lg text-sm font-medium hover:bg-black transition-colors shadow-sm">
             <Download className="w-4 h-4" />
             Generate PPT Placemat
           </button>

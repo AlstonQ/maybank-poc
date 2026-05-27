@@ -1,16 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* Typography */
+  --font-family: 'Poppins', Arial, 'Noto Sans', sans-serif;
+  
+  /* Type scale (rem) */
+  --scale-xxs: 0.64rem;
+  --scale-xs: 0.8rem;
+  --scale-sm: 0.875rem;
+  --scale-base: 1rem;
+  --scale-lg: 1.125rem;
+  --scale-xl: 1.563rem;
+  --scale-xxl: 1.953rem;
+  --scale-xxxl: 2.441rem;
+
+  /* Colors */
+  --brand: #D73875;
+  --brand-50: #F9E6EE;
+  --brand-100: #F5C2D7;
+  --brand-300: #ED77A1;
+  --brand-500: #EA4978;
+  --brand-700: #C33D6E;
+  --brand-900: #8C2C5F;
+  --brand-hover: #b7255d;
+  --brand-active: #8d1c47;
+  --brand-light-wash: #FCF2F6;
+
+  --lime: #D0E82F;
+  --lime-hover: #C1D826;
+  --lime-active: #A3B71E;
+
+  --header-bg: #1C1D1D;
+  --app-bg: #F6F7F8;
+  
+  --page-body: #292A2A;
+  --text-secondary: #58595A;
+  --text-muted: #7F8181;
+
+  --card-bg: #FFFFFF;
+  --card-border: #EBEBEB;
+  --card-border-hover: #D1D2D2;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --card-radius: 16px;
+
+  --link: #2C66D8;
+  --link-hover: #1F4AB5;
+
+  --gold: #F9A825;
+
+  /* Semantic colors */
+  --success: #4CAF50;
+  --error: #E53935;
+  --warning: #F9A825;
+  --info: #0288D1;
+
+  /* Lead/Case state colors - Map as closely as possible to new palette if needed, else keep similar hues */
+  --hot: #5977AA;
+  --warm: #6244BF;
+  --cold: #A0CED8;
+  --open: #E53935;
+  --closed: #4CAF50;
+  --in-progress: #F9A825;
+  --follow-up: #0288D1;
+  --normal: #84A0EC;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Apply base font */
 body {
-  font-family: 'Inter', 'Poppins', sans-serif;
-  background-color: #F2F3F5;
-  color: #1A1A1A;
+  font-family: var(--font-family);
+  font-weight: 300;
+  background-color: var(--app-bg);
+  color: var(--page-body);
   margin: 0;
   padding: 0;
+  /* Line-heights per spec: tight 1, 1.25, 1.5, loose 1.7. */
+  line-height: 1.5; 
 }
+
+/* Design System Overrides for arbitrary color utilities that are hardcoded in the codebase */
+/* Brand (magenta‑pink) overrides old #E6308A */
+.text-\[\#E6308A\] { color: var(--brand) !important; }
+.bg-\[\#E6308A\] { background-color: var(--brand) !important; }
+.border-\[\#E6308A\] { border-color: var(--brand) !important; }
+.hover\:bg-\[\#E6308A\]\:10:hover { background-color: var(--brand-light-wash) !important; }
+.hover\:bg-\[\#E6308A\]\\/20:hover { background-color: var(--brand-light-wash) !important; }
+.bg-\[\#E6308A\]\\/10 { background-color: var(--brand-light-wash) !important; }
+
+/* Lime accent overrides old #C6E84F */
+.text-\[\#C6E84F\] { color: var(--lime) !important; }
+.bg-\[\#C6E84F\] { background-color: var(--lime) !important; }
+.border-\[\#C6E84F\] { border-color: var(--lime) !important; }
+.hover\:bg-\[\#C6E84F\]:hover { background-color: var(--lime-hover) !important; }
+
+/* Header / Near‑black background overrides old #0A0A0A */
+.bg-\[\#0A0A0A\] { background-color: var(--header-bg) !important; }
+.text-\[\#0A0A0A\] { color: var(--header-bg) !important; }
+.border-\[\#0A0A0A\] { border-color: var(--header-bg) !important; }
+.hover\:bg-\[\#0A0A0A\]:hover { background-color: var(--header-bg) !important; opacity: 0.9; }
+
+/* Old footer / extra dark overrides #0E0E10 */
+.bg-\[\#0E0E10\] { background-color: var(--header-bg) !important; }
+.border-\[\#0E0E10\] { border-color: var(--header-bg) !important; }
+
+/* Old sidebar/topbar mid-dark #292A2A, #464848 */
+/* I'll map these to the header-bg or slightly lighter for depth */
+.bg-\[\#292A2A\] { background-color: #262727 !important; }
+.hover\:bg-\[\#292A2A\]:hover { background-color: #262727 !important; }
+.bg-\[\#464848\] { background-color: #3B3C3C !important; }
+.hover\:bg-\[\#464848\]:hover { background-color: #3B3C3C !important; }
+.border-\[\#464848\] { border-color: #3B3C3C !important; }
+
+/* App background overrides old #F2F3F5 */
+.bg-\[\#F2F3F5\] { background-color: var(--app-bg) !important; }
+.text-\[\#F2F3F5\] { color: var(--app-bg) !important; }
+
+/* Brand dark variant (used in gradients) */
+.from-\[\#E6308A\] { --tw-gradient-from: var(--brand) !important; }
+.to-\[\#9E005D\] { --tw-gradient-to: var(--brand-900) !important; }
+
+/* Active brand (hover/active) overrides old #C92276 */
+.bg-\[\#C92276\] { background-color: var(--brand-hover) !important; }
+.hover\:bg-\[\#C92276\]:hover { background-color: var(--brand-active) !important; }
+
+/* General utility overrides */
+/* Text sizing using custom rem scale */
+.text-xs { font-size: var(--scale-xs) !important; }
+.text-sm { font-size: var(--scale-sm) !important; }
+.text-base { font-size: var(--scale-base) !important; }
+.text-lg { font-size: var(--scale-lg) !important; }
+.text-xl { font-size: var(--scale-xl) !important; }
+.text-2xl { font-size: var(--scale-xxl) !important; }
+
+/* Colors overrides for texts that were old greys */
+.text-zinc-500 { color: var(--text-secondary) !important; }
+.text-zinc-400 { color: var(--text-muted) !important; }
+.text-zinc-900 { color: var(--page-body) !important; }
+.text-zinc-800 { color: var(--page-body) !important; }
 
 /* Glassmorphism utility */
 .glassmorphism {
@@ -52,4 +181,14 @@ body {
 
 .animate-pulse-slow {
   animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Force all input text colors to black as requested */
+input, select, textarea {
+  color: #000000 !important;
+}
+
+/* Chart font size limits */
+.recharts-text, .chart-text, svg text {
+  font-size: 14px !important;
 }

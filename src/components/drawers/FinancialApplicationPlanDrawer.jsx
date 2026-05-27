@@ -43,8 +43,8 @@ export default function FinancialApplicationPlanDrawer({ isOpen, onClose, custom
           {[1,2,3,4].map(s => (
             <div key={s} className="flex flex-col items-center gap-1.5">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                step === s ? 'bg-[#E6308A] text-white' : 
-                step > s ? 'bg-[#C6E84F] text-black' : 'bg-zinc-200 text-zinc-500'
+                step === s ? 'bg-brand text-white' : 
+                step > s ? 'bg-lime text-black' : 'bg-zinc-200 text-zinc-500'
               }`}>
                 {step > s ? <CheckCircle2 className="w-5 h-5" /> : s}
               </div>
@@ -91,7 +91,7 @@ export default function FinancialApplicationPlanDrawer({ isOpen, onClose, custom
                     </div>
                     <div className="space-y-1">
                       <label className="text-zinc-500 font-medium">Linked Goal</label>
-                      <select className="w-full bg-white border border-zinc-200 rounded-lg p-2 font-bold text-[#E6308A]">
+                      <select className="w-full bg-white border border-zinc-200 rounded-lg p-2 font-bold text-brand">
                         <option>{goal.name}</option>
                         <option>Retirement Planning</option>
                       </select>
@@ -147,7 +147,7 @@ export default function FinancialApplicationPlanDrawer({ isOpen, onClose, custom
                 <div className="space-y-4">
                   <h3 className="text-sm font-bold text-zinc-900 border-b border-zinc-100 pb-2">3. Suitability & Affordability Linkage</h3>
                   
-                  <div className="bg-[#0A0A0A] rounded-xl p-4 text-white relative overflow-hidden">
+                  <div className="bg-card-bg rounded-xl p-4 text-white relative overflow-hidden">
                     <div className="relative z-10 space-y-3">
                       <h4 className="text-xs font-bold text-[#3DBFD4] uppercase flex items-center gap-2">
                         <Activity className="w-4 h-4" /> Live Assessment Link
@@ -156,7 +156,7 @@ export default function FinancialApplicationPlanDrawer({ isOpen, onClose, custom
                         To proceed with this premium product application, the customer must have a valid and matching Suitability Assessment score.
                       </p>
                       
-                      <div className="flex items-center justify-between p-3 bg-zinc-900 rounded-lg mt-2 border border-zinc-800">
+                      <div className="flex items-center justify-between p-3 bg-zinc-900 rounded-lg mt-2 border border-card-border">
                         <div>
                           <span className="text-[10px] text-zinc-500 font-bold uppercase block">Current SA Status</span>
                           <span className="text-sm font-black text-green-400 block mt-0.5">Valid & Suitable</span>
@@ -188,7 +188,7 @@ export default function FinancialApplicationPlanDrawer({ isOpen, onClose, custom
                       <textarea 
                         rows={4} 
                         placeholder="Add internal notes for the branch manager / checker..."
-                        className="w-full bg-white border border-zinc-200 rounded-lg p-3 font-medium text-zinc-800 focus:ring-2 focus:ring-[#E6308A]/20 focus:border-[#E6308A]"
+                        className="w-full bg-white border border-zinc-200 rounded-lg p-3 font-medium text-zinc-800 focus:ring-2 focus:ring-[#E6308A]/20 focus:border-brand"
                       ></textarea>
                     </div>
                   </div>
@@ -234,14 +234,14 @@ export default function FinancialApplicationPlanDrawer({ isOpen, onClose, custom
             {step < 4 ? (
               <button 
                 onClick={handleNext}
-                className="flex items-center gap-1 px-5 py-2 text-xs font-bold text-white bg-[#0A0A0A] hover:bg-black rounded-lg transition-colors shadow-sm"
+                className="flex items-center gap-1 px-5 py-2 text-xs font-bold text-white bg-card-bg hover:bg-black rounded-lg transition-colors shadow-sm"
               >
                 Next <ChevronRight className="w-4 h-4" />
               </button>
             ) : (
               <button 
                 onClick={handleSubmit}
-                className="flex items-center gap-2 px-5 py-2 text-xs font-bold text-black bg-[#C6E84F] hover:opacity-90 rounded-lg transition-colors shadow-sm uppercase tracking-wider"
+                className="flex items-center gap-2 px-5 py-2 text-xs font-bold text-black bg-lime hover:opacity-90 rounded-lg transition-colors shadow-sm uppercase tracking-wider"
               >
                 <Link className="w-4 h-4" /> Submit to Checker
               </button>

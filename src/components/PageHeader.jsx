@@ -9,33 +9,30 @@ export default function PageHeader({ title, breadcrumb }) {
   const openWorkNext = () => setWorkNextOpen(true);
 
   return (
-    <div className="h-14 bg-white border-b border-zinc-200 px-6 flex items-center justify-between shadow-sm select-none">
+    <div className="h-14 bg-white border-b border-[#E5E7EB] px-6 flex items-center justify-between shadow-sm select-none">
       {/* Title & Breadcrumb */}
       <div className="flex flex-col">
-        <span className="text-xs font-semibold text-zinc-400 leading-tight">
-          {breadcrumb || `Home > ${title || 'Summary'}`}
-        </span>
-        <h1 className="text-base font-extrabold text-[#E6308A] tracking-wide uppercase leading-tight">
-          {title || 'Summary / Home'}
+        <h1 className="text-base font-bold text-zinc-900 leading-tight">
+          {title || 'Home'}
         </h1>
       </div>
 
       {/* Right control action tray */}
-      <div className="flex items-center gap-3">
-        {/* Pulse */}
-        <button onClick={openWorkNext} className="h-8 px-4 rounded-full border border-zinc-200 text-xs font-bold text-zinc-600 hover:bg-zinc-50 transition-colors shadow-sm">
-          Pulse
+      <div className="flex items-center gap-2">
+        {/* Pulse / Sync */}
+        <button onClick={openWorkNext} className="h-8 px-3 rounded-lg border border-[#E5E7EB] bg-white text-xs font-semibold text-zinc-700 hover:bg-zinc-50 flex items-center gap-1 shadow-sm">
+          <span>Pulse</span>
         </button>
 
         {/* Action Center */}
-        <button onClick={openWorkNext} className="h-8 px-4 rounded-full border border-zinc-200 text-xs font-bold text-zinc-600 hover:bg-zinc-50 transition-colors shadow-sm">
-          Action Center
+        <button onClick={openWorkNext} className="h-8 px-3 rounded-lg border border-[#E5E7EB] bg-white text-xs font-semibold text-zinc-700 hover:bg-zinc-50 flex items-center gap-1 shadow-sm">
+          <span>Action Center</span>
         </button>
 
-        {/* Lime-green Card/List Toggle */}
+        {/* Card/List Toggle */}
         <button 
           onClick={() => setCardLayout(!cardLayout)}
-          className="h-8 px-3 rounded-full bg-[#C6E84F] text-black text-xs font-bold flex items-center gap-1.5 hover:opacity-90 transition-opacity shadow-sm"
+          className="h-8 px-3 rounded-lg border border-[#E5E7EB] bg-white text-zinc-800 text-xs font-semibold flex items-center gap-1.5 hover:bg-zinc-50 shadow-sm"
           title="Toggle Grid/List Layout"
         >
           {cardLayout ? (
@@ -51,26 +48,13 @@ export default function PageHeader({ title, breadcrumb }) {
           )}
         </button>
 
-        {/* Gradient WORKNEXT trigger */}
+        {/* WORKNEXT trigger */}
         <button 
           onClick={() => setWorkNextOpen(!workNextOpen)}
-          className="h-8 px-4 rounded-full bg-gradient-to-r from-[#E6308A] to-[#9E005D] text-white text-xs font-extrabold flex items-center gap-1.5 hover:opacity-95 shadow-md transform hover:scale-[1.02] transition-all"
+          className="h-8 px-4 rounded-lg bg-brand hover:bg-brand-hover text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all"
         >
-          <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#C6E84F]" />
+          <Sparkles className="w-3.5 h-3.5 text-white" />
           <span>WORKNEXT</span>
-        </button>
-
-        {/* Sub-layers & Exit icon assets */}
-        <button onClick={() => setCardLayout(!cardLayout)} className="p-1.5 rounded-lg border border-zinc-200 hover:bg-zinc-50 text-zinc-400 hover:text-zinc-600 shadow-sm" title="Toggle layered view">
-          <Layers className="w-3.5 h-3.5" />
-        </button>
-
-        <button 
-          onClick={() => window.history.back()}
-          className="p-1.5 rounded-lg border border-zinc-200 hover:bg-zinc-50 text-zinc-400 hover:text-red-500 shadow-sm"
-          title="Close / Back"
-        >
-          <X className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>

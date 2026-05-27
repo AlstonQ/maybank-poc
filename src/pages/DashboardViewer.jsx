@@ -179,7 +179,7 @@ export default function DashboardViewer({ onBack, dashboardId }) {
           <button onClick={() => runAction('Dashboard export')} className="p-2 border border-zinc-200 rounded-lg text-zinc-600 hover:bg-zinc-50 transition-colors" title="Export">
             <Download className="w-4 h-4" />
           </button>
-          <button onClick={() => runAction('Saved view')} className="flex items-center gap-2 px-4 py-2 bg-[#0A0A0A] text-white rounded-lg text-sm font-medium hover:bg-black transition-colors shadow-sm">
+          <button onClick={() => runAction('Saved view')} className="flex items-center gap-2 px-4 py-2 bg-card-bg text-page-body rounded-lg text-sm font-medium hover:bg-black transition-colors shadow-sm">
             <Save className="w-4 h-4" />
             Save View
           </button>
@@ -195,7 +195,7 @@ export default function DashboardViewer({ onBack, dashboardId }) {
       {/* Render Dynamic Content */}
       {isLoading ? (
         <div className="h-96 flex flex-col items-center justify-center text-zinc-400 gap-4">
-          <RefreshCw className="w-8 h-8 animate-spin text-[#E6308A]" />
+          <RefreshCw className="w-8 h-8 animate-spin text-brand" />
           <p>Loading dataset for dashboard...</p>
         </div>
       ) : (
