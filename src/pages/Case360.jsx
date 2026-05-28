@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { mockCases, mockCasesGGB } from '../data/mockData';
+import CareResolutionDrawer from '../components/drawers/CareResolutionDrawer';
 import { 
-  ArrowLeft, AlertTriangle, Clock, HelpCircle, ShieldAlert,
+  ArrowLeft, AlertTriangle, AlertCircle, Clock, HelpCircle, ShieldAlert,
   ClipboardList, CheckCircle2, History, Link, ArrowRight 
 } from 'lucide-react';
 
 export default function Case360({ id, onBack }) {
   const { appMode } = useTheme();
+  const [isResolutionOpen, setIsResolutionOpen] = useState(false);
   
   const casesList = appMode === 'gcfs' ? mockCases : mockCasesGGB;
   const currentCase = casesList.find(c => c.id === id) || casesList[0];
@@ -51,6 +53,13 @@ export default function Case360({ id, onBack }) {
               {currentCase.escalationTag}
             </span>
           </div>
+          <button 
+            onClick={() => setIsResolutionOpen(true)}
+            className="h-full min-h-[64px] px-6 bg-brand hover:bg-[#C92276] text-white rounded-2xl font-black text-xs uppercase tracking-widest transition-colors shadow-lg shadow-brand/20 flex flex-col items-center justify-center gap-1"
+          >
+            <ShieldAlert className="w-5 h-5" />
+            <span>Action Ticket</span>
+          </button>
         </div>
       </div>
 
@@ -140,6 +149,12 @@ export default function Case360({ id, onBack }) {
         </div>
 
       </div>
+
+      <CareResolutionDrawer 
+        isOpen={isResolutionOpen}
+        onClose={() => setIsResolutionOpen(false)}
+        currentCase={currentCase}
+      />
 
     </div>
   );

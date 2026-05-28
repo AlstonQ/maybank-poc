@@ -86,9 +86,9 @@ body {
 .text-\[\#E6308A\] { color: var(--brand) !important; }
 .bg-\[\#E6308A\] { background-color: var(--brand) !important; }
 .border-\[\#E6308A\] { border-color: var(--brand) !important; }
-.hover\:bg-\[\#E6308A\]\:10:hover { background-color: var(--brand-light-wash) !important; }
-.hover\:bg-\[\#E6308A\]\\/20:hover { background-color: var(--brand-light-wash) !important; }
-.bg-\[\#E6308A\]\\/10 { background-color: var(--brand-light-wash) !important; }
+.hover\:bg-\[\#E6308A\]\/10\:hover { background-color: var(--brand-light-wash) !important; }
+.hover\:bg-\[\#E6308A\]\/20\:hover { background-color: var(--brand-light-wash) !important; }
+.bg-\[\#E6308A\]\/10 { background-color: var(--brand-light-wash) !important; }
 
 /* Lime accent overrides old #C6E84F */
 .text-\[\#C6E84F\] { color: var(--lime) !important; }

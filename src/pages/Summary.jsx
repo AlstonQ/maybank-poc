@@ -3,19 +3,19 @@ import { useTheme } from '../context/ThemeContext';
 import { mockCustomersGCFS, mockCustomersGGB, mockOpportunities, mockCases } from '../data/mockData';
 import { 
   Sparkles, Calendar, Award, AlertTriangle, TrendingUp, ArrowRight,
-  TrendingDown, CheckCircle2, ShoppingBag, Plus, BellRing
+  TrendingDown, CheckCircle2, ShoppingBag, Plus, BellRing, Briefcase, FileText
 } from 'lucide-react';
 import Modal from '../components/Modal';
 
 export default function Summary() {
   const { appMode, setActiveModule, setSelectedCustomerId } = useTheme();
-  const [activeTab, setActiveTab] = useState('Day Plan');
+  const [activeTab, setActiveTab] = useState('Daily Action Centre');
   const [summaryAction, setSummaryAction] = useState(null);
 
   const customers = appMode === 'gcfs' ? mockCustomersGCFS : mockCustomersGGB;
 
   const corporateOpps = mockCustomersGGB.flatMap(cust => 
-    cust.dealPipeline.map(deal => ({
+    (cust.dealPipeline || []).map(deal => ({
       id: deal.id,
       name: deal.name,
       customerId: cust.id,
@@ -32,7 +32,7 @@ export default function Summary() {
   const todayDateStr = "26 May 2026";
 
   const tabs = [
-    "Day Plan", "QTD Engagements", "QTD Sales KPI", "QTD Service KPI", 
+    "Daily Action Centre", "QTD Engagements", "QTD Sales KPI", "QTD Service KPI", 
     "Chat Analytics", "Month Plan", "Quick Actions"
   ];
 
@@ -49,7 +49,7 @@ export default function Summary() {
       <div className="py-4 text-[#1A1A1A] relative flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest block mb-1">
-            ACTIVE PORTFOLIO CONSOLE
+            RM WORKBENCH / DAILY ACTION CENTRE
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900">
             Welcome, Mr. James May
@@ -91,7 +91,7 @@ export default function Summary() {
           </button>
         ))}
       </div>      {/* Row content conditionally rendered based on activeTab */}
-      {activeTab === 'Day Plan' && (
+      {activeTab === 'Daily Action Centre' && (
         <div className="space-y-6 animate-fadeIn">
           {/* Row 1: 3-Column Card Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -116,7 +116,7 @@ export default function Summary() {
                       className="flex items-center gap-3 p-2 rounded-xl hover:bg-zinc-50 border border-transparent hover:border-zinc-200 cursor-pointer transition-all"
                     >
                       <div className="w-9 h-9 rounded-full overflow-hidden bg-zinc-100 flex-shrink-0 flex items-center justify-center">
-                        {appMode === 'gcfs' ? (
+                        {cust.segment !== 'SME' ? (
                           <img src={cust.photoUrl || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"} alt={cust.name} className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full bg-gradient-to-br from-header-bg to-[#292A2A] flex items-center justify-center font-black text-[9px] text-lime border border-card-border">
@@ -131,7 +131,7 @@ export default function Summary() {
                             {cust.segment}
                           </span>
                           <span className="text-[9px] text-[#58595A] font-semibold">
-                            {appMode === 'gcfs' ? cust.dob : `Inc: ${cust.incorporationDate}`}
+                            {cust.segment !== 'SME' ? cust.dob : `Inc: ${cust.incorporationDate}`}
                           </span>
                         </div>
                       </div>

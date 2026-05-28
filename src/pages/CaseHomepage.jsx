@@ -3,6 +3,7 @@ import { useTheme } from '../context/ThemeContext';
 import { mockCases, mockCasesGGB } from '../data/mockData';
 import Case360 from './Case360';
 import Modal from '../components/Modal';
+import LogComplaintModal from '../components/drawers/LogComplaintModal';
 import { 
   Search, SlidersHorizontal, AlertTriangle, AlertCircle, CheckCircle, 
   HelpCircle, ChevronRight, Filter, Download
@@ -15,6 +16,7 @@ export default function CaseHomepage() {
 
   const [activeFilter, setActiveFilter] = useState('All');
   const [caseAction, setCaseAction] = useState(null);
+  const [logComplaintOpen, setLogComplaintOpen] = useState(false);
 
   if (selectedCaseId) {
     return <Case360 id={selectedCaseId} onBack={() => setSelectedCaseId(null)} />;
@@ -64,6 +66,10 @@ export default function CaseHomepage() {
             <Download className="w-3.5 h-3.5" />
             <span>Export CSV</span>
           </button>
+          <button onClick={() => setLogComplaintOpen(true)} className="h-8 px-4 bg-red-600 hover:bg-red-700 text-white rounded-xl text-[10px] font-extrabold uppercase tracking-widest flex items-center gap-1.5 transition-colors shadow">
+            <AlertTriangle className="w-3.5 h-3.5" />
+            <span>Log Complaint</span>
+          </button>
         </div>
       </div>
 
@@ -80,6 +86,7 @@ export default function CaseHomepage() {
                 <th className="py-4 px-6 text-center">SLA Status</th>
                 <th className="py-4 px-6 text-center">Regulatory Tag</th>
                 <th className="py-4 px-6 text-right">Case Status</th>
+                <th className="py-4 px-6 text-right">Action</th>
               </tr>
             </thead>
             <tbody className="text-xs text-zinc-700 font-semibold divide-y divide-zinc-150">
@@ -126,6 +133,17 @@ export default function CaseHomepage() {
                         {c.status}
                       </span>
                     </td>
+                    <td className="py-4 px-6 text-right">
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedCaseId(c.id);
+                        }}
+                        className="px-3 py-1.5 bg-brand hover:opacity-90 text-white text-[10px] font-bold rounded-lg transition-colors shadow-sm"
+                      >
+                        View Ticket
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
@@ -161,6 +179,10 @@ export default function CaseHomepage() {
         </div>
       </Modal>
 
+      <LogComplaintModal 
+        isOpen={logComplaintOpen} 
+        onClose={() => setLogComplaintOpen(false)} 
+      />
     </div>
   );
 }

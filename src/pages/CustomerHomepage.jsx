@@ -49,8 +49,8 @@ export default function CustomerHomepage() {
 
   // Available segments based on App Mode
   const segments = appMode === 'gcfs' 
-    ? ["All", "Mass", "Privilege", "Premier Wealth", "Private Wealth"]
-    : ["All", "Global Banking"];
+    ? ["All", "Private Wealth", "Premier Wealth", "Islamic", "SME"]
+    : ["All"];
 
   return (
     <div className="space-y-6">
@@ -174,7 +174,7 @@ export default function CustomerHomepage() {
               {/* Top Row: photo, name, segment */}
               <div className="flex gap-3">
                 <div className="w-12 h-12 rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-200 flex-shrink-0 flex items-center justify-center">
-                  {appMode === 'gcfs' ? (
+                  {cust.segment !== 'SME' ? (
                     <img src={cust.photoUrl || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"} alt={cust.name} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex items-center justify-center font-black text-xs text-lime border border-zinc-700">

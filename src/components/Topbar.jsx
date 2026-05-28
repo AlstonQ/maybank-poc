@@ -223,6 +223,27 @@ export default function Topbar() {
               </div>
               
               <div className="px-4 py-3 mt-2 border-t border-[#464848]">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <label className="text-xs font-semibold text-zinc-300 block">Workspace Mode</label>
+                    <span className="text-[10px] text-zinc-500">Toggle GCFS / GGB</span>
+                  </div>
+                  <div className="flex gap-1 bg-[#292A2A] p-0.5 rounded-lg">
+                    <button 
+                      onClick={() => setAppMode('gcfs')} 
+                      className={`px-2 py-1 text-[9px] font-bold rounded ${appMode === 'gcfs' ? 'bg-brand text-white' : 'text-zinc-400 hover:text-white'}`}
+                    >
+                      GCFS
+                    </button>
+                    <button 
+                      onClick={() => setAppMode('ggb')} 
+                      className={`px-2 py-1 text-[9px] font-bold rounded ${appMode === 'ggb' ? 'bg-lime text-black' : 'text-zinc-400 hover:text-white'}`}
+                    >
+                      GGB
+                    </button>
+                  </div>
+                </div>
+
                 <div className="flex items-center justify-between">
                   <div>
                     <label className="text-xs font-semibold text-zinc-300 block">Data Masking (PII)</label>

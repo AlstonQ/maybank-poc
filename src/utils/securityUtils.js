@@ -52,3 +52,9 @@ export const maskPII = (value, type, isMaskingEnabled) => {
       return '****';
   }
 };
+
+export const canViewSensitive = (role, isConfidential) => {
+  if (!isConfidential) return true;
+  const authorizedRoles = ['Compliance', 'Branch Manager', 'Agent / RM'];
+  return authorizedRoles.includes(role);
+};

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Search, Plus, LayoutDashboard, Star, MoreHorizontal, Clock, ChevronRight } from 'lucide-react';
 import DashboardViewer from './DashboardViewer';
 import GGBPlacematViewer from './GGBPlacematViewer';
+import SmeDashboards from '../components/sme/SmeDashboards';
+import WealthDashboards from '../components/wealth/WealthDashboards';
 import { useTheme } from '../context/ThemeContext';
 import Modal from '../components/Modal';
 
@@ -16,6 +18,34 @@ export default function DashboardsHomepage() {
     if (selectedDashboardId === 'DB-GGB-001' && appMode === 'ggb') {
       return <GGBPlacematViewer onBack={() => setSelectedDashboardId(null)} dashboardId={selectedDashboardId} />;
     }
+    if (selectedDashboardId === 'DB-SME-001' && appMode === 'gcfs') {
+      return (
+        <div className="space-y-6">
+          <div className="flex items-center gap-4">
+            <button onClick={() => setSelectedDashboardId(null)} className="p-2 bg-white rounded-lg shadow-sm border border-zinc-200 hover:bg-zinc-50 text-zinc-600">
+              <ChevronRight className="w-4 h-4 rotate-180" />
+            </button>
+            <h2 className="text-xl font-bold text-zinc-900">SME Portfolio Analytics</h2>
+          </div>
+          <SmeDashboards />
+        </div>
+      );
+    }
+    if (selectedDashboardId === 'DB-WEALTH-001' && appMode === 'gcfs') {
+      return (
+        <div className="space-y-6">
+          <div className="flex items-center gap-4">
+            <button onClick={() => setSelectedDashboardId(null)} className="p-2 bg-white rounded-lg shadow-sm border border-zinc-200 hover:bg-zinc-50 text-zinc-600">
+              <ChevronRight className="w-4 h-4 rotate-180" />
+            </button>
+            <h2 className="text-xl font-bold text-zinc-900">Wealth Portfolio Analytics</h2>
+          </div>
+          <div className="p-6">
+            <WealthDashboards />
+          </div>
+        </div>
+      );
+    }
     return <DashboardViewer onBack={() => setSelectedDashboardId(null)} dashboardId={selectedDashboardId} />;
   }
 
@@ -28,7 +58,10 @@ export default function DashboardsHomepage() {
     ...(appMode === 'ggb' ? [
       { id: "DB-GGB-001", name: "Account Planning / Placemat", description: "Corporate exposure, parent-subsidiary hierarchy and cross-border limits.", isFavorite: true, lastViewed: "26 May 2026", category: "Corporate" },
       { id: "DB-GGB-002", name: "Regional Customer 360", description: "Consolidated pipeline view and multi-product opportunity tracking.", isFavorite: false, lastViewed: "24 May 2026", category: "Corporate" }
-    ] : [])
+    ] : [
+      { id: "DB-SME-001", name: "SME Portfolio Analytics", description: "Cross-segment dashboard covering SME financing limits, exposure, and risk distribution.", isFavorite: true, lastViewed: "Today", category: "SME" },
+      { id: "DB-WEALTH-001", name: "Wealth Portfolio Analytics", description: "Wealth AUM growth, asset allocation, product penetration, and KYC refresh tracking.", isFavorite: true, lastViewed: "Today", category: "Wealth" }
+    ])
   ];
 
   const filteredDashboards = enhancedDashboards.filter(db => 

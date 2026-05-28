@@ -30,6 +30,9 @@ export default function DashboardViewer({ onBack, dashboardId }) {
         case 'DB-003':
           fetchedData = MockAnalyticsEngine.getSalesPipelineData();
           break;
+        case 'DB-004':
+          fetchedData = MockAnalyticsEngine.getRMPerformanceData();
+          break;
         default:
           fetchedData = MockAnalyticsEngine.getExecutiveSummaryData();
       }
@@ -138,6 +141,51 @@ export default function DashboardViewer({ onBack, dashboardId }) {
     />
   );
 
+  const renderRMPortfolio = () => (
+    <DashboardGrid 
+      kpiCards={data.kpis.map(kpi => <KPICard key={kpi.id} {...kpi} />)}
+      charts={[
+        <ChartWrapper key="chart-7" title="Product Penetration Rate" subtitle="Percentage of customers holding each product type" fullWidth={true}>
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={data.productPenetration} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
+              <XAxis dataKey="name" axisLine={false} tickLine={false} />
+              <YAxis axisLine={false} tickLine={false} tickFormatter={(val) => `${val}%`} />
+              <Tooltip formatter={(value) => `${value}%`} />
+              <Bar dataKey="value" fill="#3DBFD4" radius={[4, 4, 0, 0]} barSize={40} />
+            </BarChart>
+          </ResponsiveContainer>
+        </ChartWrapper>,
+        <ChartWrapper key="chart-8" title="Cross-Sell Performance (YoY)">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={data.crossSellPerformance} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
+              <XAxis dataKey="name" axisLine={false} tickLine={false} />
+              <YAxis axisLine={false} tickLine={false} />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="actual" stroke="#F5A623" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} name="Actual Cross-Sell" />
+              <Line type="monotone" dataKey="target" stroke="#9CA3AF" strokeWidth={2} strokeDasharray="5 5" dot={false} name="Target" />
+            </LineChart>
+          </ResponsiveContainer>
+        </ChartWrapper>,
+        <ChartWrapper key="chart-9" title="Up-Sell Opportunities">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie data={data.upSellOpportunities} innerRadius={50} outerRadius={80} dataKey="value">
+                {data.upSellOpportunities.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </ChartWrapper>
+      ]}
+    />
+  );
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -154,7 +202,8 @@ export default function DashboardViewer({ onBack, dashboardId }) {
               <h1 className="text-2xl font-bold text-zinc-900">
                 {dashboardId === 'DB-001' ? 'Executive Summary' : 
                  dashboardId === 'DB-002' ? 'Complaint Management Dashboard' : 
-                 'Sales Pipeline Dashboard'}
+                 dashboardId === 'DB-003' ? 'Sales Pipeline Dashboard' :
+                 'RM Portfolio Dashboard'}
               </h1>
               <span className="bg-emerald-100 text-emerald-700 text-xs px-2 py-0.5 rounded font-medium flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -203,6 +252,7 @@ export default function DashboardViewer({ onBack, dashboardId }) {
           {dashboardId === 'DB-001' && renderExecutiveSummary()}
           {dashboardId === 'DB-002' && renderComplaintManagement()}
           {dashboardId === 'DB-003' && renderSalesPipeline()}
+          {dashboardId === 'DB-004' && renderRMPortfolio()}
         </>
       )}
     </div>

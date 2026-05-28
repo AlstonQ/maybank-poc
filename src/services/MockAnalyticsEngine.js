@@ -100,9 +100,39 @@ export const getGGBExposureData = () => {
   };
 };
 
+export const getRMPerformanceData = () => {
+  return {
+    kpis: [
+      { id: 'kpi-rm1', title: 'Average Product Holding', value: '3.4', delta: '+0.2', trend: 'up', status: 'success' },
+      { id: 'kpi-rm2', title: 'Cross-Sell Ratio', value: '28%', delta: '+4%', trend: 'up', status: 'success' },
+      { id: 'kpi-rm3', title: 'Up-Sell Success Rate', value: '18%', delta: '-2%', trend: 'down', status: 'warning' },
+      { id: 'kpi-rm4', title: 'Total Revenue per RM', value: 'MYR 4.2M', delta: '+12%', trend: 'up', status: 'success' }
+    ],
+    productPenetration: [
+      { name: 'CASA', value: 92 },
+      { name: 'Credit Card', value: 65 },
+      { name: 'Wealth/Unit Trust', value: 45 },
+      { name: 'Mortgage', value: 30 },
+      { name: 'Bancassurance', value: 25 }
+    ],
+    crossSellPerformance: [
+      { name: 'Q1', target: 20, actual: 22 },
+      { name: 'Q2', target: 25, actual: 28 },
+      { name: 'Q3', target: 30, actual: 27 },
+      { name: 'Q4', target: 35, actual: 38 }
+    ],
+    upSellOpportunities: [
+      { name: 'Standard to Premier', value: 45 },
+      { name: 'Premier to Private', value: 15 },
+      { name: 'Basic Card to Infinite', value: 40 }
+    ]
+  };
+};
+
 export const MockAnalyticsEngine = {
   getExecutiveSummaryData,
   getComplaintManagementData,
   getSalesPipelineData,
-  getGGBExposureData
+  getGGBExposureData,
+  getRMPerformanceData
 };
